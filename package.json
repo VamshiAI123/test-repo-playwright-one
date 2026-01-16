@@ -1,0 +1,22 @@
+{
+  "name": "test-repo-playwright-one",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VamshiAI123/test-repo-playwright-one.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VamshiAI123/test-repo-playwright-one/issues"
+  },
+  "homepage": "https://github.com/VamshiAI123/test-repo-playwright-one#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.9"
+  }
+}
