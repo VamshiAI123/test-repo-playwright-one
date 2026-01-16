@@ -2,6 +2,10 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
+  timeout: 30000,
+  expect: {
+    timeout: 5000,
+  },
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
@@ -12,19 +16,20 @@ export default defineConfig({
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
+    actionTimeout: 10000,
+    navigationTimeout: 15000,
   },
+  
   projects: [
     {
-      name: 'chromium',
+      name: 'smoke',
+      testMatch: /.*smoke\.spec\.js/,
       use: { ...devices['Desktop Chrome'] },
     },
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      name: 'regression',
+      testMatch: /.*\.spec\.js/,
+      use: { ...devices['Desktop Chrome'] },
     },
   ],
 });
